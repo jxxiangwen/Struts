@@ -1,13 +1,18 @@
-package cn.edu.shu.interceptptor;
+package cn.edu.shu.interceptor;
 
 import com.opensymphony.xwork2.ActionInvocation;
 import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 计算执行Action花费的时间
  * Created by jxxiangwen on 16-1-5.
  */
 public class TimerInterceptor extends AbstractInterceptor {
+
+    private static final Logger logger = LoggerFactory.getLogger(TimerInterceptor.class);
+
     @Override
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         //TODO:计算执行时间
@@ -16,10 +21,9 @@ public class TimerInterceptor extends AbstractInterceptor {
         //2.执行下一个拦截器，如果已经是最后一个则执行Action
         //result为Action返回结果
         String result = actionInvocation.invoke();
-        System.out.println("result:" + result);
         //3.执行Action之后
         long end = System.currentTimeMillis();
-        System.out.println("总执行时间:" + (end - start) + "ms");
+        logger.debug("ActionName:{}--Method:{}--总执行时间:{}ms", actionInvocation.getProxy().getAction(), actionInvocation.getProxy().getMethod(), (end - start));
         return result;
     }
 }

@@ -5,6 +5,8 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+    <!-- 当struts的配置文件修改后,系统是否自动重新加载该文件,默认值为false(生产环境下使用),开发阶段最好打开 -->
+    <constant name="struts.configuration.xml.reload" value="true" />
     <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
     <constant name="struts.devMode" value="true"/>
     <!-- struts2的action必须放在一个指定的包空间下定义 -->
@@ -12,7 +14,7 @@
         <!--注册拦截器-->
         <interceptors>
             <!--注册单个拦截器-->
-            <interceptor name="time_interceptor" class="cn.edu.shu.interceptptor.TimerInterceptor"/>
+            <interceptor name="time_interceptor" class="cn.edu.shu.interceptor.TimerInterceptor"/>
             <interceptor-stack name="time_stack">
                 <!--注册拦截器栈-->
                 <interceptor-ref name="defaultStack"/>
