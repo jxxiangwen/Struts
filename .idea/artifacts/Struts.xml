@@ -10,6 +10,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Struts 2-2.3.20.1" />
           <element id="library" level="project" name="junit:junit:4.12" />
+          <element id="library" level="application" name="sitemesh-3.0.1" />
         </element>
       </element>
     </root>

@@ -5,18 +5,18 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <constant name="struts.enable.DynamicMethodInvocation" value="false"></constant>
-    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+    <constant name="struts.devMode" value="true"/>
     <!-- struts2的action必须放在一个指定的包空间下定义 -->
     <package name="default" namespace="/" extends="struts-default">
         <!--注册拦截器-->
         <interceptors>
             <!--注册单个拦截器-->
-            <interceptor name="time_interceptor" class="cn.edu.shu.interceptptor.TimerInterceptor"></interceptor>
+            <interceptor name="time_interceptor" class="cn.edu.shu.interceptptor.TimerInterceptor"/>
             <interceptor-stack name="time_stack">
                 <!--注册拦截器栈-->
-                <interceptor-ref name="defaultStack"></interceptor-ref>
-                <interceptor-ref name="time_interceptor"></interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="time_interceptor"/>
             </interceptor-stack>
         </interceptors>
         <!-- 定义处理请求URL为login.action的Action -->
@@ -24,9 +24,9 @@
             <!-- 定义处理结果字符串和资源之间的映射关系 -->
             <result name="success">/WEB-INF/success.jsp</result>
             <!--当为包中的某个action显示指定了某个拦截器，则默认拦截器不会起作用,需要手动引用-->
-            <interceptor-ref name="defaultStack"></interceptor-ref>
+            <interceptor-ref name="defaultStack"/>
             <!--引用拦截器-->
-            <interceptor-ref name="time_interceptor"></interceptor-ref>
+            <interceptor-ref name="time_interceptor"/>
             <!--或者引用拦截器栈-->
             <!--<interceptor-ref name="time_stack"></interceptor-ref>-->
         </action>
