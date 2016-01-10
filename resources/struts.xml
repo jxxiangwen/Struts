@@ -14,7 +14,7 @@
         <!--注册拦截器-->
         <interceptors>
             <!--注册单个拦截器-->
-            <interceptor name="time_interceptor" class="cn.edu.shu.interceptor.TimerInterceptor"/>
+            <interceptor name="time_interceptor" class="edu.shu.interceptor.TimerInterceptor"/>
             <interceptor-stack name="time_stack">
                 <!--注册拦截器栈-->
                 <interceptor-ref name="defaultStack"/>
@@ -22,7 +22,7 @@
             </interceptor-stack>
         </interceptors>
         <!-- 定义处理请求URL为login.action的Action -->
-        <action name="timer" class="cn.edu.shu.action.TimerAction">
+        <action name="timer" class="edu.shu.action.TimerAction">
             <!-- 定义处理结果字符串和资源之间的映射关系 -->
             <result name="success">/WEB-INF/success.jsp</result>
             <!--当为包中的某个action显示指定了某个拦截器，则默认拦截器不会起作用,需要手动引用-->
